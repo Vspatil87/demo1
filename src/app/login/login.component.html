@@ -1,0 +1,97 @@
+<div class="section">
+  <div class="container">
+    <div class="row full-height justify-content-center">
+      <div class="col-12 text-center align-self-center py-5">
+        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+          <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+          <input (click)="reset()" class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+          <label for="reg-log"></label>
+          <div class="card-3d-wrap mx-auto">
+            <div class="card-3d-wrapper">
+              <div class="card-front">
+                <div class="center-wrap">
+                  <div class="section text-center">
+                    <h4 class="mb-4 pb-3">Log In</h4>
+                    <form [formGroup]="userLoginForm" (ngSubmit)="userLoginSubmit()">
+                      <div class="form-group">
+                        <input type="email" formControlName="loginMail" class="form-style" placeholder="Your Email"
+                          id="logemail" autocomplete="off"
+                          [ngClass]="{ 'is-invalid': loginSubmitted && f2['loginMail'].errors }">
+                        <div *ngIf="loginSubmitted && f2['loginMail'].errors" class="invalid-feedback">
+                          <div *ngIf="f2['loginMail'].errors['required']">Email is required</div>
+                          <div *ngIf="f2['loginMail'].errors['email']">Email is invalid</div>
+                        </div>
+                        <i class="input-icon uil uil-at"><i class="fa fa-envelope" aria-hidden="true"></i></i>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input type="password" formControlName="loginPass" class="form-style"
+                          placeholder="Your Password" id="logpass" autocomplete="off"
+                          [ngClass]="{ 'is-invalid': loginSubmitted && f2['loginPass'].errors }">
+                        <div *ngIf="loginSubmitted && f2['loginPass'].errors" class="invalid-feedback">
+                          <div *ngIf="f2['loginPass'].errors['required']">Password is required</div>
+                          <div *ngIf="f2['loginPass'].errors['minlength']">
+                            Password must be at least 6 characters
+                          </div>
+                          <div *ngIf="f2['loginPass'].errors['maxlength']">
+                            Password must not exceed 40 characters
+                          </div>
+                        </div>
+                        <i class="input-icon uil uil-lock-alt"><i class="fa fa-unlock-alt" aria-hidden="true"></i></i>
+                      </div>
+                      <button class="btn mt-4" type="submit">submit</button>
+                      <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="card-back">
+                <div class="center-wrap">
+                  <div class="section text-center">
+                    <h4 class="mb-4 pb-3">Sign Up</h4>
+                    <form [formGroup]="userSignUpForm" (ngSubmit)="userSignUpSubmit()">
+                      <div class="form-group">
+                        <input type="text" formControlName="fullName" class="form-style" placeholder="Your Full Name"
+                          id="fullName" autocomplete="off"
+                          [ngClass]="{ 'is-invalid': submitted && f['fullName'].errors }">
+                        <div *ngIf="submitted && f['fullName'].errors" class="invalid-feedback">
+                          <div *ngIf="f['fullName'].errors['required']">Fullname is required</div>
+                        </div>
+                        <i class="input-icon uil uil-user"><i class="fa fa-user" aria-hidden="true"></i></i>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input type="email" formControlName="signUpMail" class="form-style" placeholder="Your Email"
+                          id="signUpMail" autocomplete="off"
+                          [ngClass]="{ 'is-invalid': submitted && f['signUpMail'].errors }">
+                        <div *ngIf="submitted && f['signUpMail'].errors" class="invalid-feedback">
+                          <div *ngIf="f['signUpMail'].errors['required']">Email is required</div>
+                          <div *ngIf="f['signUpMail'].errors['email']">Email is invalid</div>
+                        </div>
+                        <i class="input-icon uil uil-at"><i class="fa fa-envelope" aria-hidden="true"></i></i>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input type="password" formControlName="signUpPass" class="form-style"
+                          placeholder="Your Password" id="signUpPass" autocomplete="off"
+                          [ngClass]="{ 'is-invalid': submitted && f['signUpPass'].errors }">
+                        <div *ngIf="submitted && f['signUpPass'].errors" class="invalid-feedback">
+                          <div *ngIf="f['signUpPass'].errors['required']">Password is required</div>
+                          <div *ngIf="f['signUpPass'].errors['minlength']">
+                            Password must be at least 6 characters
+                          </div>
+                          <div *ngIf="f['signUpPass'].errors['maxlength']">
+                            Password must not exceed 40 characters
+                          </div>
+                        </div>
+                        <i class="input-icon uil uil-lock-alt"><i class="fa fa-unlock-alt" aria-hidden="true"></i></i>
+                      </div>
+                      <button class="btn mt-4" type="submit">submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
